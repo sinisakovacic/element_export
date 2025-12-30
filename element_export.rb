@@ -10,7 +10,7 @@
 #   - Auto-detects dimensions (L/W/T)
 #   - Detects materials from instance, definition, and faces
 #   - Supports multi-side edge banding (A01/A02/A03/A04)
-#   - Extracts thickness from material name (e.g., "18mm White")
+#   - Extracts thickness from material
 #   - Uses Tag/Layer name as part name
 # ============================================================
 
