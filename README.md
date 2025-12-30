@@ -59,9 +59,9 @@ name,length,width,thickness,eb_l,eb_r,eb_t,eb_b
 ## 📁 Example Output
 ```
 name,length,width,thickness,eb_l,eb_r,eb_t,eb_b
-Front,720,396,18,1,1,0,0
-Side,720,560,18,0,0,0,0
-Shelf,720,560,16,1,0,1,1
+Front,720,396,18,x,x,,
+Side,720,560,18,,,,
+Shelf,720,560,16,x,,x,x
 ```
 
 ## 🛠 Installation
