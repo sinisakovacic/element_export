@@ -1,19 +1,20 @@
 # element_export
-element_export is lightweight SketchUp extension for exporting selected Groups and Components dimensions, thickness and edge‑banding into a clean CSV file for creating accurate woodworking cut‑lists.
+element_export is a lightweight SketchUp extension for exporting selected Groups and Components into a clean CSV file containing dimensions, thickness, quantity, and edge‑banding information — perfect for creating accurate woodworking cut‑lists.
+
+Designed for real‑world carpentry workflows, it automatically detects part orientation, materials, and multi‑side edge banding, making it ideal for cabinetmaking, furniture design, and CNC preparation.
 
 ## 📌 Overview
-It exports selected Groups and Component Instances into a clean CSV file suitable for:
+This extension exports selected SketchUp Groups and Component Instances into a structured CSV file suitable for:
 + Cut‑list optimizers
-+ CNC preparation workflows
-+ Excel/Sheets processing
++ CNC machining workflows
++ Excel / Google Sheets
 + Carpentry production planning
-
 The exporter automatically detects:
-+ Part name (from Tag/Layer)
-+ Length, width, thickness
++ Part label (from Tag/Layer)
++ Length, width, thickness (auto‑sorted)
 + Edge banding on all four sides
 + Materials applied to faces (not just components)
-+ This makes it ideal for cabinetmaking, furniture design, and any workflow where SketchUp models are converted into real‑world production data.
++ Quantity of identical parts (automatic counting)
 
 ## ✨ Features
 ### Automatic Dimension Detection
@@ -36,10 +37,10 @@ Banding rules (exact material name match):
 
 | **Material Name**  | **Banding Side** |
 | ------------------ | ---------------- |
-|     Color A01   	 |    Left (eb_l)   |
-|     Color A02	     |    Right (eb_r)  |
-|     Color A03	     |    Right (eb_t)  |
-|     Color A04	     |    Right (eb_b)  |
+|     Color A01   	 |    Left (eb1)    |
+|     Color A02	     |    Right (eb2)   |
+|     Color A03	     |    Right (eb3)   |
+|     Color A04	     |    Right (eb4)   |
 
 Multiple sides can be banded on the same part.
 
@@ -50,18 +51,29 @@ Fallbacks:
 2. Component definition name
 3. "Unnamed"
 
+### Automatic Counting of Identical Parts
+Identical parts (same label, dimensions, and edge banding) are automatically grouped and counted.
+This produces a clean, production‑ready CSV without duplicates.
+
+### Sorted Output
+The final CSV is sorted by:
+Thickness (deb) — descending
+Length — descending
+Width — descending
+Perfect for carpentry workflows and cut‑list optimizers.
+
 ### Clean CSV Output
 The exported CSV contains:
 ```
-name,length,width,thickness,eb_l,eb_r,eb_t,eb_b
+name,deb,length,width,pices,eb1,eb2,eb3,eb4
 ```
 
 ## 📁 Example Output
 ```
 name,length,width,thickness,eb_l,eb_r,eb_t,eb_b
-Front,720,396,18,x,x,,
-Side,720,560,18,,,,
-Shelf,720,560,16,x,,x,x
+Front,18,720,396,2,x,x,,
+Side,18,720,560,2,,,,
+Shelf,16,720,560,1,x,,x,x
 ```
 
 ## 🛠 Installation
